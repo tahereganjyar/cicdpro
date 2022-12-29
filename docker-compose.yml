@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+  producer-server:
+    container_name: cicdpro
+    image: digipay/cicdpro
+    restart: always
+    ports:
+      - 8959:8959
+      - 5005:5005
+    environment:
+      - JAVA_TOOL_OPTIONS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
+#    networks:
+#      - spring-cloud-network
+#networks:
+#  spring-cloud-network:
+#    driver: bridge
